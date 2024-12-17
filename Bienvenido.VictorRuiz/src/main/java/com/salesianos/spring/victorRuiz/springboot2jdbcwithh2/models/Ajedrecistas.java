@@ -1,9 +1,9 @@
 package com.salesianos.spring.victorRuiz.springboot2jdbcwithh2.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Ajedrecistas {
@@ -11,48 +11,46 @@ public class Ajedrecistas {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private int victorias;
-    private int derrotas;
 
-    public Ajedrecistas() {
-    }
+    private String nombre;
+    private String nacionalidad;
 
-    public Ajedrecistas(String name, int victorias, int derrotas) {
-        this.name = name;
-        this.victorias = victorias;
-        this.derrotas = derrotas;
+    @ManyToMany(mappedBy = "ajedrecistas")
+    @JsonIgnore
+    private Set<Torneo> torneos = new HashSet<>();
+
+    public Ajedrecistas() {}
+
+    public Ajedrecistas(String nombre, String nacionalidad) {
+        this.nombre = nombre;
+        this.nacionalidad = nacionalidad;
     }
 
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public String getNombre() {
+        return nombre;
     }
 
-    public String getName() {
-        return name;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getNacionalidad() {
+        return nacionalidad;
     }
 
-    public int getVictorias() {
-        return victorias;
+    public void setNacionalidad(String nacionalidad) {
+        this.nacionalidad = nacionalidad;
     }
 
-    public void setVictorias(int victorias) {
-        this.victorias = victorias;
+    public Set<Torneo> getTorneos() {
+        return torneos;
     }
 
-    public int getDerrotas() {
-        return derrotas;
-    }
-
-    public void setDerrotas(int derrotas) {
-        this.derrotas = derrotas;
+    public void setTorneos(Set<Torneo> torneos) {
+        this.torneos = torneos;
     }
 }
