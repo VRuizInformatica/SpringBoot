@@ -1,0 +1,8 @@
+PracticaAvionesVictorRuiz\rutas_aviones\model\Enlace.class
+PracticaAvionesVictorRuiz\rutas_aviones\model\EnlacePK.class
+PracticaAvionesVictorRuiz\rutas_aviones\repository\EnlaceRepository.class
+PracticaAvionesVictorRuiz\rutas_aviones\repository\CiudadRepository.class
+PracticaAvionesVictorRuiz\rutas_aviones\controller\RutaController.class
+PracticaAvionesVictorRuiz\rutas_aviones\model\Ciudad.class
+PracticaAvionesVictorRuiz\rutas_aviones\service\RutaService.class
+PracticaAvionesVictorRuiz\rutas_aviones\RutasAvionesApplication.class
